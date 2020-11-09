@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-utils": {
+    "ngx-utils-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-utils",
+            "outputPath": "dist/ngx-utils-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-utils:build"
+            "browserTarget": "ngx-utils-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-utils:build:production"
+              "browserTarget": "ngx-utils-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-utils:build"
+            "browserTarget": "ngx-utils-app:build"
           }
         },
         "test": {
@@ -114,15 +114,55 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-utils:serve"
+            "devServerTarget": "ngx-utils-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-utils:serve:production"
+              "devServerTarget": "ngx-utils-app:serve:production"
             }
           }
         }
       }
+    },
+    "@iworb/ngx-utils": {
+      "projectType": "library",
+      "root": "projects/iworb/ngx-utils",
+      "sourceRoot": "projects/iworb/ngx-utils/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/iworb/ngx-utils/tsconfig.lib.json",
+            "project": "projects/iworb/ngx-utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/iworb/ngx-utils/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/iworb/ngx-utils/src/test.ts",
+            "tsConfig": "projects/iworb/ngx-utils/tsconfig.spec.json",
+            "karmaConfig": "projects/iworb/ngx-utils/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/iworb/ngx-utils/tsconfig.lib.json",
+              "projects/iworb/ngx-utils/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
-  "defaultProject": "ngx-utils"
+  "defaultProject": "ngx-utils-app"
 }
