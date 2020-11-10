@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -147,7 +149,8 @@
           "options": {
             "main": "projects/iworb/ngx-utils/src/test.ts",
             "tsConfig": "projects/iworb/ngx-utils/tsconfig.spec.json",
-            "karmaConfig": "projects/iworb/ngx-utils/karma.conf.js"
+            "karmaConfig": "projects/iworb/ngx-utils/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -163,6 +166,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ngx-utils-app"
 }

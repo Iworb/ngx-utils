@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxUtilsComponent } from './ngx-utils.component';
+import { TrackByExampleComponent } from './track-by-example.component';
 
-describe('NgxUtilsComponent', () => {
-  let component: NgxUtilsComponent;
-  let fixture: ComponentFixture<NgxUtilsComponent>;
+describe('TrackByExampleComponent', () => {
+  let component: TrackByExampleComponent;
+  let fixture: ComponentFixture<TrackByExampleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgxUtilsComponent ]
+      declarations: [ TrackByExampleComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgxUtilsComponent);
+    fixture = TestBed.createComponent(TrackByExampleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

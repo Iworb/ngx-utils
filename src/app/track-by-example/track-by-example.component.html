@@ -1,0 +1,26 @@
+There's a large image in each item. When you have <code>trackBy</code> in
+<code>*ngFor</code> it won't reload this image, it's just change properties that was changed, but without it every item will be re-created from scratch and every image have to reload.
+<div class="app-tb-column">
+  <button mat-raised-button (click)="generateItems()" color="primary">Generate new items</button>
+  <div class="app-tb-row">
+    <div class="app-tb-column">
+      <h3>Items without trackById</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let item of items">
+          <img [attr.src]="'https://via.placeholder.com/1000/92c952?id=' + item.id + '&time=' + timestamp"> Item
+          with id #{{ item.id }} ({{ item.rand }})
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="app-tb-column">
+      <h3>Items with trackById</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let item of items; trackBy: trackById">
+          <img [attr.src]="'https://via.placeholder.com/1000/92c952?id=' + item.id + '&time=' + timestamp"> Item with id
+          #{{ item.id }}
+          ({{ item.rand }})
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+</div>
